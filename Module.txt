@@ -1,0 +1,17 @@
+﻿Name: Lombiq Layouts
+AntiForgery: enabled
+Author: Lombiq Technologies Ltd.
+Website: http://lombiq.com
+Version: 1.0
+OrchardVersion: 1.10.1
+Features:
+    Lombiq.Layouts:
+        Name: Lombiq Layouts
+        Category: Layout
+        Description: Useful Layout Elements.
+        Dependencies: Orchard.Layouts
+    Lombiq.Layouts.Slider:
+        Name: Slider Element
+        Category: Layout
+        Description: A container element for cycling through elements in it, like a carousel.
+        Dependencies: Lombiq.Layouts
