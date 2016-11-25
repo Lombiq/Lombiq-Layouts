@@ -13,5 +13,5 @@ Features:
     Lombiq.Layouts.Slider:
         Name: Slider Element
         Category: Layout
-        Description: A container element for cycling through elements in it, like a carousel.
+        Description: Adds a container element to the system for cycling through elements in it, like a carousel.
         Dependencies: Lombiq.Layouts
