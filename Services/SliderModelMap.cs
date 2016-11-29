@@ -1,9 +1,9 @@
 ﻿using Lombiq.Layouts.Elements;
+using Orchard.Environment.Extensions;
 using Orchard.Layouts.Services;
 
 namespace Lombiq.Layouts.Services
 {
-    public class SliderModelMap : LayoutModelMapBase<Slider>
-    {
-    }
+    [OrchardFeature("Lombiq.Layouts.Slider")]
+    public class SliderModelMap : LayoutModelMapBase<Slider> { }
 }

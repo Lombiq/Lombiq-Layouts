@@ -1,6 +1,44 @@
-﻿<div class="lombiq-layouts-slider">
+﻿@using Lombiq.Layouts.Elements
+@using Orchard.Layouts.Helpers
+
+@{ 
+    Style.Require("SlickTheme").AtHead();
+    Style.Require("Slick").AtHead();
+    Script.Require("Slick").AtFoot();
+
+    var tagBuilder = TagBuilderExtensions.CreateElementTagBuilder(Model, "section");
+    var sliderElement = (Slider)Model.Element;
+    var identity = Model.Identity;
+}
+
+@tagBuilder.StartElement
+<div class="lombiq-layouts-slider-@identity">
     @foreach (var item in Model.Items)
     {
-        @Display(item)
+        <div>
+            @Display(item)
+        </div>
     }
 </div>
+@tagBuilder.EndElement
+
+@using (Script.Foot())
+{
+    if (sliderElement != null && sliderElement.IsCarousel)
+    {
+        <script type="text/javascript">
+            //<![CDATA[
+            $(".lombiq-layouts-slider-@identity").slick({
+                //infinite: @Json.Encode(sliderElement.IsInfinite),
+                slidesToShow: @sliderElement.ItemsToShow,
+                slidesToScroll: @sliderElement.ItemsToScroll,
+                autoplay: @Json.Encode(sliderElement.IsAutoplay),
+                autoplaySpeed: @sliderElement.AutoplaySpeed,
+                centerMode: true,
+                variableWidth: true,
+                dots: true
+            });
+            //]]>
+        </script>
+    }
+}

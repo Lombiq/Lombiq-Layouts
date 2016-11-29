@@ -1,13 +1,11 @@
 ﻿using Orchard.DisplayManagement.Descriptors;
 using Orchard.Environment;
+using Orchard.Environment.Extensions;
 using Orchard.UI.Resources;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Lombiq.Layouts.Handlers
 {
+    [OrchardFeature("Lombiq.Layouts.Slider")]
     public class LayoutEditorShapeEventHandler : IShapeTableProvider
     {
         private readonly Work<IResourceManager> _resourceManager;
