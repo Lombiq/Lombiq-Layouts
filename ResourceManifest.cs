@@ -9,6 +9,10 @@ namespace Lombiq.Layouts
             var manifest = builder.Add();
 
             manifest.DefineScript("Lombiq.Layouts.LayoutEditor").SetUrl("LayoutEditor.js").SetDependencies("Layouts.LayoutEditor");
+
+            manifest.DefineStyle("SlickTheme").SetUrl("../Content/Slick/slick-theme.css");
+            manifest.DefineStyle("Slick").SetUrl("../Content/Slick/slick.css");
+            manifest.DefineScript("Slick").SetUrl("Slick/slick.min.js", "Slick/slick.js").SetDependencies("jQuery");
         }
     }
 }
