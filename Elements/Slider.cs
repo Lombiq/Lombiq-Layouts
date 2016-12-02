@@ -8,7 +8,7 @@ namespace Lombiq.Layouts.Elements
     [OrchardFeature("Lombiq.Layouts.Slider")]
     public class Slider : Container
     {
-        public override string Category { get { return "Lombiq"; } }
+        public override string Category { get { return "UI"; } }
 
         public override string ToolboxIcon { get { return "\uf1c5"; } }
 
@@ -16,12 +16,6 @@ namespace Lombiq.Layouts.Elements
 
         public override bool HasEditor { get { return true; } }
 
-
-        public bool IsCarousel
-        {
-            get { return this.Retrieve(x => x.IsCarousel); }
-            set { this.Store(x => x.IsCarousel, value); }
-        }
 
         public bool IsInfinite
         {
