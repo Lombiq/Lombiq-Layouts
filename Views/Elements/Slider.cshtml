@@ -11,11 +11,15 @@
 }
 
 @tagBuilder.StartElement
-@if (sliderElement.DisplayOnlyButtonsOnTop)
+@if (sliderElement.DisplayNavigationButtons && sliderElement.DisplayNavigationOnTop && sliderElement.DisplayOnlyButtonsOnTop)
 {
-    <div class="customNavigation">
-        <div class="btn prev">prev</div>
-        <div class="btn next">next</div>
+    <div class="owl-theme">
+        <div class="owl-controls">
+            <div class="owl-buttons">
+                <div class="owl-prev">prev</div>
+                <div class="owl-next">next</div>
+            </div>
+        </div>
     </div>
 }
 <div class="lombiq-layouts-slider-@identity owl-carousel">
@@ -39,7 +43,14 @@
                 var owl = $(".lombiq-layouts-slider-@identity");
 
                 owl.owlCarousel({
-                    items: @sliderElement.ItemsToShow.ToString().ToLower(),
+                    @if (sliderElement.ItemsToShow == 1)
+                    {
+                        @:singleItem: true,
+                    }
+                    else
+                    {
+                        @:items: @sliderElement.ItemsToShow.ToString().ToLower(),
+                    }
                     autoPlay: @(sliderElement.Autoplay == 0 ? "false" : sliderElement.Autoplay.ToString()),
                     stopOnHover: true,
                     pagination: @sliderElement.DisplayDots.ToString().ToLower(),
@@ -58,13 +69,12 @@
                     }
                 });
 
-                @if (sliderElement.DisplayOnlyButtonsOnTop)
+                @if (sliderElement.DisplayNavigationButtons && sliderElement.DisplayNavigationOnTop && sliderElement.DisplayOnlyButtonsOnTop)
                 {
-                    // Custom Navigation Events
-                    @:$(".next").click(function(){
+                    @:$(".owl-next").click(function(){
                     @:    owl.trigger("owl.next");
                     @:})
-                    @:$(".prev").click(function(){
+                    @:$(".owl-prev").click(function(){
                     @:    owl.trigger("owl.prev");
                     @:})
                 }

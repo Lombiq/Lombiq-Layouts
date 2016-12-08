@@ -19,7 +19,7 @@ namespace Lombiq.Layouts.Elements
         public override bool HasEditor { get { return true; } }
 
 
-        [Range(0, Int32.MaxValue)]
+        [Range(0, Int32.MaxValue, ErrorMessage = "Please use a positive number.")]
         public int ItemsToShow
         {
             get { return this.Retrieve(x => x.ItemsToShow); }
