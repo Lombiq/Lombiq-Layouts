@@ -1,10 +1,9 @@
 ﻿@using Lombiq.Layouts.Elements
 @using Orchard.Layouts.Helpers
 
-@{ 
-    Style.Require("SlickTheme").AtHead();
-    Style.Require("Slick").AtHead();
-    Script.Require("Slick").AtFoot();
+@{
+    Style.Require("OwlCarousel").AtHead();
+    Script.Require("OwlCarousel").AtFoot();
 
     var tagBuilder = TagBuilderExtensions.CreateElementTagBuilder(Model, "section");
     var sliderElement = (Slider)Model.Element;
@@ -12,10 +11,17 @@
 }
 
 @tagBuilder.StartElement
-<div class="lombiq-layouts-slider-@identity">
+@if (sliderElement.DisplayOnlyButtonsOnTop)
+{
+    <div class="customNavigation">
+        <div class="btn prev">prev</div>
+        <div class="btn next">next</div>
+    </div>
+}
+<div class="lombiq-layouts-slider-@identity owl-carousel">
     @foreach (var item in Model.Items)
     {
-        <div>
+        <div class="item">
             @Display(item)
         </div>
     }
@@ -24,19 +30,44 @@
 
 @using (Script.Foot())
 {
-    if (sliderElement != null && sliderElement.IsCarousel)
+    if (sliderElement != null)
     {
         <script type="text/javascript">
             //<![CDATA[
-            $(".lombiq-layouts-slider-@identity").slick({
-                //infinite: @Json.Encode(sliderElement.IsInfinite),
-                slidesToShow: @sliderElement.ItemsToShow,
-                slidesToScroll: @sliderElement.ItemsToScroll,
-                autoplay: @Json.Encode(sliderElement.IsAutoplay),
-                autoplaySpeed: @sliderElement.AutoplaySpeed,
-                centerMode: true,
-                variableWidth: true,
-                dots: true
+            $(document).ready(function () {
+
+                var owl = $(".lombiq-layouts-slider-@identity");
+
+                owl.owlCarousel({
+                    items: @sliderElement.ItemsToShow.ToString().ToLower(),
+                    autoPlay: @(sliderElement.Autoplay == 0 ? "false" : sliderElement.Autoplay.ToString()),
+                    stopOnHover: true,
+                    pagination: @sliderElement.DisplayDots.ToString().ToLower(),
+                    navigation: @((sliderElement.DisplayNavigationButtons && !sliderElement.DisplayOnlyButtonsOnTop) ? "true" : "false"),
+                    paginationSpeed: 1000,
+                    goToFirstSpeed: 2000,
+                    itemsScaleUp: @sliderElement.ItemsScaleUp.ToString().ToLower(),
+                    autoHeight: @sliderElement.AutoHeight.ToString().ToLower(),
+                    transitionStyle: "@sliderElement.TransitionStyle.ToString()",
+                    @if (sliderElement.DisplayNavigationOnTop && !sliderElement.DisplayOnlyButtonsOnTop)
+                    {
+                        @:afterInit: function(elem) {
+                        @:    var that = this;
+                        @:    that.owlControls.prependTo(elem);
+                        @:}
+                    }
+                });
+
+                @if (sliderElement.DisplayOnlyButtonsOnTop)
+                {
+                    // Custom Navigation Events
+                    @:$(".next").click(function(){
+                    @:    owl.trigger("owl.next");
+                    @:})
+                    @:$(".prev").click(function(){
+                    @:    owl.trigger("owl.prev");
+                    @:})
+                }
             });
             //]]>
         </script>

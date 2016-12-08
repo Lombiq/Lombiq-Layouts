@@ -4,29 +4,51 @@
     <legend>@T("Carousel-specific settings")</legend>
     <ol>
         <li>
-            @Html.CheckBoxFor(m => m.IsInfinite)
-            @Html.LabelFor(m => m.IsInfinite, @T("Infinite scrolling").Text, new { @class = "forcheckbox" })
-            @Html.Hint(T("Check for infinite scrolling."))
-        </li>
-        <li>
-            @Html.LabelFor(m => m.ItemsToShow, @T("Number of slides to show at a time"))
+            @Html.LabelFor(m => m.ItemsToShow, @T("Items"))
             @Html.TextBoxFor(m => m.ItemsToShow)
             @Html.Hint(T("The number of how many slides appear at a time."))
         </li>
         <li>
-            @Html.LabelFor(m => m.ItemsToScroll, @T("Number of slides to scroll at a time"))
-            @Html.TextBoxFor(m => m.ItemsToScroll)
-            @Html.Hint(T("The number of how many slides scroll at a time."))
+            @Html.CheckBoxFor(m => m.AutoHeight)
+            @Html.LabelFor(m => m.AutoHeight, @T("Dynamic height").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Adding height dynamically to the slider's wrapper, so you can use different heights on slides. Use it only for one item per page setting."))
         </li>
         <li>
-            @Html.CheckBoxFor(m => m.IsAutoplay)
-            @Html.LabelFor(m => m.IsAutoplay, @T("Autoplay").Text, new { @class = "forcheckbox" })
-            @Html.Hint(T("Enables auto play of slides."))
+            @Html.LabelFor(m => m.Autoplay, @T("Autoplay"))
+            @Html.TextBoxFor(m => m.Autoplay)
+            @Html.Hint(T("Auto play change interval. Speed in milliseconds. \"0\" meaning off."))
         </li>
         <li>
-            @Html.LabelFor(m => m.AutoplaySpeed, @T("Autoplay speed"))
-            @Html.TextBoxFor(m => m.AutoplaySpeed)
-            @Html.Hint(T("Auto play change interval. Speed in milliseconds."))
+            @Html.CheckBoxFor(m => m.DisplayDots)
+            @Html.LabelFor(m => m.DisplayDots, @T("Display dots").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Display pagination dots."))
+        </li>
+        <li>
+            @Html.CheckBoxFor(m => m.DisplayNavigationButtons)
+            @Html.LabelFor(m => m.DisplayNavigationButtons, @T("Navigation buttons").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Display \"next\" and \"prev\" buttons."))
+        </li>
+        <li>
+            @Html.CheckBoxFor(m => m.DisplayNavigationOnTop)
+            @Html.LabelFor(m => m.DisplayNavigationOnTop, @T("Navigation on top").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Display navigation on the top of the slider instead of bottom."))
+        </li>
+        <li data-controllerid="@Html.FieldIdFor(m => m.DisplayNavigationOnTop)">
+            <div data-controllerid="@Html.FieldIdFor(m => m.DisplayNavigationButtons)">
+                @Html.CheckBoxFor(m => m.DisplayOnlyButtonsOnTop)
+                @Html.LabelFor(m => m.DisplayOnlyButtonsOnTop, @T("Only buttons on the top").Text, new { @class = "forcheckbox" })
+                @Html.Hint(T("Display only the \"next\" and \"prev\" buttons on the top."))
+            </div>
+        </li>
+        <li>
+            @Html.LabelFor(m => m.Autoplay, @T("Transition style"))
+            @Html.EnumDropDownListFor(m => m.TransitionStyle)
+            @Html.Hint(T("Only active when item is set to 1."))
+        </li>
+        <li>
+            @Html.CheckBoxFor(m => m.ItemsScaleUp)
+            @Html.LabelFor(m => m.ItemsScaleUp, @T("Scale up items").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Option to stretch items when it is less than the supplied items."))
         </li>
     </ol>
 </fieldset>

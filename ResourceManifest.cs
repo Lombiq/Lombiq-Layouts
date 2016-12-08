@@ -10,9 +10,11 @@ namespace Lombiq.Layouts
 
             manifest.DefineScript("Lombiq.Layouts.LayoutEditor").SetUrl("LayoutEditor.js").SetDependencies("Layouts.LayoutEditor");
 
-            manifest.DefineStyle("SlickTheme").SetUrl("../Content/Slick/slick-theme.css");
-            manifest.DefineStyle("Slick").SetUrl("../Content/Slick/slick.css");
-            manifest.DefineScript("Slick").SetUrl("Slick/slick.min.js", "Slick/slick.js").SetDependencies("jQuery");
+            manifest.DefineStyle("OwlCarouselTheme").SetUrl("../Content/OwlCarousel/owl.theme.css");
+            manifest.DefineStyle("OwlCarouselCustomTheme").SetUrl("owl-carousel-custom-theme.min.css", "owl-carousel-custom-theme.css").SetDependencies("OwlCarouselTheme");
+            manifest.DefineStyle("OwlCarouselTransitions").SetUrl("../Content/OwlCarousel/owl.transitions.css");
+            manifest.DefineStyle("OwlCarousel").SetUrl("../Content/OwlCarousel/owl.carousel.css").SetDependencies("OwlCarouselCustomTheme", "OwlCarouselTransitions");
+            manifest.DefineScript("OwlCarousel").SetUrl("owl.carousel.min.js", "owl.carousel.js").SetDependencies("jQuery");
         }
     }
 }

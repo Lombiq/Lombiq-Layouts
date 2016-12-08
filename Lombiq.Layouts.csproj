@@ -103,19 +103,21 @@
     <Compile Include="Services\SliderModelMap.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Slick\ajax-loader.gif" />
-    <Content Include="Content\Slick\fonts\slick.svg" />
-    <Content Include="Content\Slick\slick-theme.css" />
-    <Content Include="Content\Slick\slick.css" />
-    <Content Include="Content\Slick\slick.scss" />
-    <Content Include="Content\Slick\slick-theme.scss" />
-    <Content Include="Content\Slick\fonts\slick.woff" />
-    <Content Include="Content\Slick\fonts\slick.ttf" />
-    <Content Include="Content\Slick\fonts\slick.eot" />
+    <Content Include="Content\OwlCarousel\AjaxLoader.gif" />
+    <Content Include="Content\OwlCarousel\grabbing.png" />
+    <Content Include="Content\OwlCarousel\owl.carousel.css" />
+    <Content Include="Content\OwlCarousel\owl.theme.css" />
+    <Content Include="Content\OwlCarousel\owl.transitions.css" />
     <Content Include="Content\Web.config" />
     <Content Include="Scripts\LayoutEditor.js" />
-    <Content Include="Scripts\Slick\slick.js" />
-    <Content Include="Scripts\Slick\slick.min.js" />
+    <Content Include="Scripts\owl.carousel.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Styles\owl-carousel-custom-theme.css">
+      <DependentUpon>owl-carousel-custom-theme.less</DependentUpon>
+    </Content>
+    <Content Include="Styles\owl-carousel-custom-theme.min.css">
+      <DependentUpon>owl-carousel-custom-theme.css</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Scripts\Web.config" />
     <Content Include="Styles\Web.config" />
@@ -154,6 +156,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\EditorTemplates\Elements.Slider.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\owl-carousel-custom-theme.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
