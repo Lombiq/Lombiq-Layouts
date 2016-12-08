@@ -11,16 +11,19 @@
 }
 
 @tagBuilder.StartElement
-@if (sliderElement.DisplayNavigationButtons && sliderElement.DisplayNavigationOnTop && sliderElement.DisplayOnlyButtonsOnTop)
+@if (sliderElement != null)
 {
-    <div class="owl-theme">
-        <div class="owl-controls">
-            <div class="owl-buttons">
-                <div class="owl-prev">prev</div>
-                <div class="owl-next">next</div>
+    if (sliderElement.DisplayNavigationButtons && sliderElement.DisplayNavigationOnTop && sliderElement.DisplayOnlyButtonsOnTop)
+    {
+        <div class="owl-theme">
+            <div class="owl-controls">
+                <div class="owl-buttons">
+                    <div class="owl-prev">prev</div>
+                    <div class="owl-next">next</div>
+                </div>
             </div>
         </div>
-    </div>
+    }
 }
 <div class="lombiq-layouts-slider-@identity owl-carousel">
     @foreach (var item in Model.Items)
