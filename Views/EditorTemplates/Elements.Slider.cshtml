@@ -4,7 +4,7 @@
     <legend>@T("Carousel-specific settings")</legend>
     <ol>
         <li>
-            @Html.LabelFor(m => m.ItemsToShow, @T("Items"))
+            @Html.LabelFor(m => m.ItemsToShow, @T("Items to show"))
             @Html.TextBoxFor(m => m.ItemsToShow)
             @Html.Hint(T("The number of how many slides appear at a time."))
         </li>
@@ -26,13 +26,13 @@
         <li>
             @Html.CheckBoxFor(m => m.DisplayNavigationOnTop)
             @Html.LabelFor(m => m.DisplayNavigationOnTop, @T("Navigation on top").Text, new { @class = "forcheckbox" })
-            @Html.Hint(T("Display navigation on the top of the slider instead of bottom."))
+            @Html.Hint(T("Display navigation (both pagination dots and \"next\", \"prev\" buttons) on the top of the slider instead of bottom."))
         </li>
         <li data-controllerid="@Html.FieldIdFor(m => m.DisplayNavigationOnTop)">
             <div data-controllerid="@Html.FieldIdFor(m => m.DisplayNavigationButtons)">
                 @Html.CheckBoxFor(m => m.DisplayOnlyButtonsOnTop)
                 @Html.LabelFor(m => m.DisplayOnlyButtonsOnTop, @T("Only buttons on the top").Text, new { @class = "forcheckbox" })
-                @Html.Hint(T("Display only the \"next\" and \"prev\" buttons on the top."))
+                @Html.Hint(T("Display only the \"next\" and \"prev\" buttons on the top (keeps the pagination dots at the bottom)."))
             </div>
         </li>
         <li>
@@ -43,7 +43,7 @@
         <li>
             @Html.CheckBoxFor(m => m.ItemsScaleUp)
             @Html.LabelFor(m => m.ItemsScaleUp, @T("Scale up items").Text, new { @class = "forcheckbox" })
-            @Html.Hint(T("Option to stretch items when it is less than the supplied items."))
+            @Html.Hint(T("Option to stretch the items in the viewport, when there are fewer items available, than wich is set in the \"Items to show\" property. E.g. if 15 is set in the \"Items to show\", and there are only 10 items in the Slider container, there won't be any empty space in the Slider."))
         </li>
     </ol>
 </fieldset>
