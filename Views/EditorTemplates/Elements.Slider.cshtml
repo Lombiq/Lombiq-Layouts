@@ -9,11 +9,6 @@
             @Html.Hint(T("The number of how many slides appear at a time."))
         </li>
         <li>
-            @Html.CheckBoxFor(m => m.AutoHeight)
-            @Html.LabelFor(m => m.AutoHeight, @T("Dynamic height").Text, new { @class = "forcheckbox" })
-            @Html.Hint(T("Adding height dynamically to the slider's wrapper, so you can use different heights on slides. Use it only for one item per page setting."))
-        </li>
-        <li>
             @Html.LabelFor(m => m.Autoplay, @T("Autoplay"))
             @Html.TextBoxFor(m => m.Autoplay)
             @Html.Hint(T("Auto play change interval. Speed in milliseconds. \"0\" meaning off."))

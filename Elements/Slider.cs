@@ -26,12 +26,6 @@ namespace Lombiq.Layouts.Elements
             set { this.Store(x => x.ItemsToShow, value); }
         }
 
-        public bool AutoHeight
-        {
-            get { return this.Retrieve(x => x.AutoHeight); }
-            set { this.Store(x => x.AutoHeight, value); }
-        }
-
         public int Autoplay
         {
             get { return this.Retrieve(x => x.Autoplay); }
