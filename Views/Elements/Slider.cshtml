@@ -25,7 +25,7 @@
         </div>
     }
 }
-<div class="lombiq-layouts-slider-@identity owl-carousel">
+<div id="lombiq-layouts-slider-@identity" class="owl-carousel">
     @foreach (var item in Model.Items)
     {
         <div class="item">
@@ -41,9 +41,9 @@
     {
         <script type="text/javascript">
             //<![CDATA[
-            $(document).ready(function () {
+            $(function () {
 
-                var owl = $(".lombiq-layouts-slider-@identity");
+                var owl = $("#lombiq-layouts-slider-@identity");
 
                 owl.owlCarousel({
                     @if (sliderElement.ItemsToShow == 1)
@@ -57,28 +57,32 @@
                     autoPlay: @(sliderElement.Autoplay == 0 ? "false" : sliderElement.Autoplay.ToString()),
                     stopOnHover: true,
                     pagination: @sliderElement.DisplayDots.ToString().ToLower(),
-                    navigation: @((sliderElement.DisplayNavigationButtons && !sliderElement.DisplayOnlyButtonsOnTop) ? "true" : "false"),
+                    navigation: @((sliderElement.DisplayNavigationButtons && !sliderElement.DisplayOnlyButtonsOnTop) ? sliderElement.DisplayNavigationButtons.ToString().ToLower() : "false"),
                     paginationSpeed: 1000,
                     goToFirstSpeed: 2000,
                     itemsScaleUp: @sliderElement.ItemsScaleUp.ToString().ToLower(),
                     transitionStyle: "@sliderElement.TransitionStyle.ToString()",
                     @if (sliderElement.DisplayNavigationOnTop && !sliderElement.DisplayOnlyButtonsOnTop)
                     {
-                        @:afterInit: function(elem) {
-                        @:    var that = this;
-                        @:    that.owlControls.prependTo(elem);
-                        @:}
+                        <text>
+                        afterInit: function(elem) {
+                            var that = this;
+                            that.owlControls.prependTo(elem);
+                        }
+                        </text>
                     }
                 });
 
                 @if (sliderElement.DisplayNavigationButtons && sliderElement.DisplayNavigationOnTop && sliderElement.DisplayOnlyButtonsOnTop)
                 {
-                    @:$(".owl-next").click(function(){
-                    @:    owl.trigger("owl.next");
-                    @:})
-                    @:$(".owl-prev").click(function(){
-                    @:    owl.trigger("owl.prev");
-                    @:})
+                    <text>
+                    $("#@identity .owl-next").click(function(){
+                        owl.trigger("owl.next");
+                    })
+                    $("#@identity .owl-prev").click(function(){
+                        owl.trigger("owl.prev");
+                    })
+                    </text>
                 }
             });
             //]]>
