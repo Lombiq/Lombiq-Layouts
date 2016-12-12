@@ -2,7 +2,7 @@
 @using Orchard.Layouts.Helpers
 
 @{
-    Style.Require("OwlCarousel").AtHead();
+    Style.Require("OwlCarousel");
     Script.Require("OwlCarousel").AtFoot();
 
     var tagBuilder = TagBuilderExtensions.CreateElementTagBuilder(Model, "section");
