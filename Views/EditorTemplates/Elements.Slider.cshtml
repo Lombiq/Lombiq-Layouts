@@ -1,4 +1,5 @@
 ﻿@model Lombiq.Layouts.Elements.Slider
+@using Lombiq.Layouts.Elements
 
 <fieldset>
     <legend>@T("Carousel-specific settings")</legend>
@@ -37,8 +38,8 @@
         </li>
         <li>
             @Html.LabelFor(m => m.Autoplay, @T("Transition style"))
-            @Html.EnumDropDownListFor(m => m.TransitionStyle)
-            @Html.Hint(T("Only active when item is set to 1."))
+            @Html.DropDownList("TransitionStyle", new SelectList(new[] { new SelectListItem { Text = T("Fade").Text, Value = TransitionStyle.fade.ToString() }, new SelectListItem { Text = T("Backslide").Text, Value = TransitionStyle.backSlide.ToString() }, new SelectListItem { Text = T("Fade up").Text, Value = TransitionStyle.fadeUp.ToString() }, new SelectListItem { Text = T("Go down").Text, Value = TransitionStyle.goDown.ToString() } }, "Value", "Text"))
+            @Html.Hint(T("Only active when \"Items to show\" is set to 1."))
         </li>
         <li>
             @Html.CheckBoxFor(m => m.ItemsScaleUp)
