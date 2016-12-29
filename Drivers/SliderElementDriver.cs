@@ -27,7 +27,7 @@ namespace Lombiq.Layouts.Drivers
             do
             {
                 depth++;
-                container = container.Container;
+                container = container?.Container;
             } while (container != null);
             var position = element.Index;
             var identity = string.Format("{0}-{1}-{2}", context.Content.Id, depth, position);
