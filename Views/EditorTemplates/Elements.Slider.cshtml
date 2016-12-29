@@ -1,0 +1,56 @@
+﻿@model Slider
+@using Lombiq.Layouts.Elements
+
+<fieldset>
+    <legend>@T("Carousel-specific settings")</legend>
+    <ol>
+        <li>
+            @Html.LabelFor(m => m.ItemsToShow, @T("Items to show"))
+            @Html.TextBoxFor(m => m.ItemsToShow)
+            @Html.Hint(T("The number of how many slides appear at a time. Default: 1."))
+        </li>
+        <li>
+            @Html.LabelFor(m => m.Autoplay, @T("Autoplay"))
+            @Html.TextBoxFor(m => m.Autoplay)
+            @Html.Hint(T("Auto play change interval. Speed in milliseconds. \"0\" meaning off. Default: 5000."))
+        </li>
+        <li>
+            @Html.CheckBoxFor(m => m.DisplayDots)
+            @Html.LabelFor(m => m.DisplayDots, @T("Display dots").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Display pagination dots."))
+        </li>
+        <li>
+            @Html.CheckBoxFor(m => m.DisplayNavigationButtons)
+            @Html.LabelFor(m => m.DisplayNavigationButtons, @T("Navigation buttons").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Display \"next\" and \"prev\" buttons."))
+        </li>
+        <li>
+            @Html.CheckBoxFor(m => m.DisplayNavigationOnTop)
+            @Html.LabelFor(m => m.DisplayNavigationOnTop, @T("Navigation on top").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Display navigation (both pagination dots and \"next\", \"prev\" buttons) on the top of the slider instead of bottom."))
+        </li>
+        <li data-controllerid="@Html.FieldIdFor(m => m.DisplayNavigationOnTop)">
+            <div data-controllerid="@Html.FieldIdFor(m => m.DisplayNavigationButtons)">
+                @Html.CheckBoxFor(m => m.DisplayOnlyButtonsOnTop)
+                @Html.LabelFor(m => m.DisplayOnlyButtonsOnTop, @T("Only buttons on the top").Text, new { @class = "forcheckbox" })
+                @Html.Hint(T("Display only the \"next\" and \"prev\" buttons on the top (keeps the pagination dots at the bottom)."))
+            </div>
+        </li>
+        <li>
+            @Html.LabelFor(m => m.Autoplay, @T("Transition style"))
+            @Html.DropDownList("TransitionStyle",
+                new SelectList(new[] {
+                    new SelectListItem { Text = T("Fade").Text, Value = TransitionStyle.Fade.ToString() },
+                    new SelectListItem { Text = T("Backslide").Text, Value = TransitionStyle.Backslide.ToString() },
+                    new SelectListItem { Text = T("Fade up").Text, Value = TransitionStyle.Fadeup.ToString() },
+                    new SelectListItem { Text = T("Go down").Text, Value = TransitionStyle.Godown.ToString() } },
+                    "Value", "Text"))
+            @Html.Hint(T("Only active when \"Items to show\" is set to 1."))
+        </li>
+        <li>
+            @Html.CheckBoxFor(m => m.ItemsScaleUp)
+            @Html.LabelFor(m => m.ItemsScaleUp, @T("Scale up items").Text, new { @class = "forcheckbox" })
+            @Html.Hint(T("Option to stretch the items in the viewport, when there are fewer items available, than wich is set in the \"Items to show\" property. E.g. if 15 is set in the \"Items to show\", and there are only 10 items in the Slider container, there won't be any empty space in the Slider."))
+        </li>
+    </ol>
+</fieldset>
