@@ -1,4 +1,4 @@
-﻿@model Lombiq.Layouts.Elements.Slider
+﻿@model Slider
 @using Lombiq.Layouts.Elements
 
 <fieldset>
@@ -7,12 +7,12 @@
         <li>
             @Html.LabelFor(m => m.ItemsToShow, @T("Items to show"))
             @Html.TextBoxFor(m => m.ItemsToShow)
-            @Html.Hint(T("The number of how many slides appear at a time."))
+            @Html.Hint(T("The number of how many slides appear at a time. Default: 1."))
         </li>
         <li>
             @Html.LabelFor(m => m.Autoplay, @T("Autoplay"))
             @Html.TextBoxFor(m => m.Autoplay)
-            @Html.Hint(T("Auto play change interval. Speed in milliseconds. \"0\" meaning off."))
+            @Html.Hint(T("Auto play change interval. Speed in milliseconds. \"0\" meaning off. Default: 5000."))
         </li>
         <li>
             @Html.CheckBoxFor(m => m.DisplayDots)
@@ -38,7 +38,13 @@
         </li>
         <li>
             @Html.LabelFor(m => m.Autoplay, @T("Transition style"))
-            @Html.DropDownList("TransitionStyle", new SelectList(new[] { new SelectListItem { Text = T("Fade").Text, Value = TransitionStyle.fade.ToString() }, new SelectListItem { Text = T("Backslide").Text, Value = TransitionStyle.backSlide.ToString() }, new SelectListItem { Text = T("Fade up").Text, Value = TransitionStyle.fadeUp.ToString() }, new SelectListItem { Text = T("Go down").Text, Value = TransitionStyle.goDown.ToString() } }, "Value", "Text"))
+            @Html.DropDownList("TransitionStyle",
+                new SelectList(new[] {
+                    new SelectListItem { Text = T("Fade").Text, Value = TransitionStyle.Fade.ToString() },
+                    new SelectListItem { Text = T("Backslide").Text, Value = TransitionStyle.Backslide.ToString() },
+                    new SelectListItem { Text = T("Fade up").Text, Value = TransitionStyle.Fadeup.ToString() },
+                    new SelectListItem { Text = T("Go down").Text, Value = TransitionStyle.Godown.ToString() } },
+                    "Value", "Text"))
             @Html.Hint(T("Only active when \"Items to show\" is set to 1."))
         </li>
         <li>
