@@ -8,6 +8,26 @@
     var tagBuilder = TagBuilderExtensions.CreateElementTagBuilder(Model, "section");
     var sliderElement = (Slider)Model.Element;
     var identity = Model.Identity;
+    var transitionStyleEnum = sliderElement.TransitionStyle;
+    var transitionStyle = "";
+    switch (transitionStyleEnum)
+    {
+        case TransitionStyle.Fade:
+            transitionStyle = "fade";
+            break;
+        case TransitionStyle.Backslide:
+            transitionStyle = "backSlide";
+            break;
+        case TransitionStyle.Godown:
+            transitionStyle = "goDown";
+            break;
+        case TransitionStyle.Fadeup:
+            transitionStyle = "fadeUp";
+            break;
+        default:
+            transitionStyle = "fade";
+            break;
+    }
 }
 
 @tagBuilder.StartElement
@@ -61,7 +81,7 @@
                     paginationSpeed: 1000,
                     goToFirstSpeed: 2000,
                     itemsScaleUp: @sliderElement.ItemsScaleUp.ToString().ToLower(),
-                    transitionStyle: "@sliderElement.TransitionStyle.ToString()",
+                    transitionStyle: "@transitionStyle",
                     @if (sliderElement.DisplayNavigationOnTop && !sliderElement.DisplayOnlyButtonsOnTop)
                     {
                         <text>
