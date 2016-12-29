@@ -22,13 +22,13 @@ namespace Lombiq.Layouts.Elements
         [Range(0, Int32.MaxValue, ErrorMessage = "Please use a positive number.")]
         public int ItemsToShow
         {
-            get { return this.Retrieve(x => x.ItemsToShow); }
+            get { return this.Retrieve(x => x.ItemsToShow, () => 1); }
             set { this.Store(x => x.ItemsToShow, value); }
         }
 
         public int Autoplay
         {
-            get { return this.Retrieve(x => x.Autoplay); }
+            get { return this.Retrieve(x => x.Autoplay, () => 5000); }
             set { this.Store(x => x.Autoplay, value); }
         }
 
