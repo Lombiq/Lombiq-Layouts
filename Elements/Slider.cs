@@ -69,11 +69,12 @@ namespace Lombiq.Layouts.Elements
         }
     }
 
+
     public enum TransitionStyle
     {
-        fade,
-        backSlide,
-        goDown,
-        fadeUp
+        Fade,
+        Backslide,
+        Godown,
+        Fadeup
     }
 }
