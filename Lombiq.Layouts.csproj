@@ -139,10 +139,7 @@
       <Name>Orchard.Layouts</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Licence.md" />
     <Content Include="Readme.md" />
