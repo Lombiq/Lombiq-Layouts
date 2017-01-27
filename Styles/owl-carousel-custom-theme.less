@@ -1,0 +1,33 @@
+﻿.owl-carousel {
+    .item {
+        padding: 10px;
+
+        img {
+            /* Reset img max-width rule */
+            max-width: none;
+            /* End of reset */
+
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    }
+
+    .grabbing {
+        cursor: url(grabbing.png) 8 8, move; /* fallback if grab cursor is unsupported */
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        cursor: grab;
+
+        &:active {
+            cursor: url(grabbing.png) 8 8, move;
+            cursor: -webkit-grabbing;
+            cursor: -moz-grabbing;
+            cursor: grabbing;
+        }
+    }
+}
