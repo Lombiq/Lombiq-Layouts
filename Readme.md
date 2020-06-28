@@ -1,6 +1,7 @@
 # Lombiq Layouts Orchard module readme
 
 
+## About
 
 An [Orchard CMS](http://orchardproject.net/) module that adds some useful layout elements:
 
@@ -10,11 +11,9 @@ The elements have their separate features that you can enable; after this the el
 
 The module is also available for [DotNest](http://dotnest.com/) sites.
 
-The module's source is available in two public source repositories, automatically mirrored in both directions with [Git-hg Mirror](https://githgmirror.com):
 
-- [https://bitbucket.org/Lombiq/lombiq-layouts](https://bitbucket.org/Lombiq/lombiq-layouts) (Mercurial repository)
-- [https://github.com/Lombiq/Lombiq-Layouts](https://github.com/Lombiq/Lombiq-Layouts) (Git repository)
+## Contributing and support
 
-Bug reports, feature requests and comments are warmly welcome, **please do so via GitHub**. Feel free to send pull requests too, no matter which source repository you choose for this purpose.
+Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
-This project is developed by [Lombiq Technologies Ltd](http://lombiq.com/). Commercial-grade support is available through Lombiq.
+This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
